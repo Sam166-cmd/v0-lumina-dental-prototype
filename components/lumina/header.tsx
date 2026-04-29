@@ -7,9 +7,10 @@ import { Button } from "@/components/ui/button"
 
 interface HeaderProps {
   onBookingClick: () => void
+  variant?: "home" | "page"
 }
 
-export function Header({ onBookingClick }: HeaderProps) {
+export function Header({ onBookingClick, variant = "home" }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -21,12 +22,23 @@ export function Header({ onBookingClick }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
+  const homeNavLinks = [
     { href: "#services", label: "Services" },
     { href: "#results", label: "Before & After" },
     { href: "#testimonials", label: "Testimonials" },
     { href: "#faq", label: "FAQ" },
+    { href: "/contact", label: "Contact" },
   ]
+
+  const pageNavLinks = [
+    { href: "/#services", label: "Services" },
+    { href: "/#results", label: "Before & After" },
+    { href: "/#testimonials", label: "Testimonials" },
+    { href: "/#faq", label: "FAQ" },
+    { href: "/contact", label: "Contact" },
+  ]
+
+  const navLinks = variant === "home" ? homeNavLinks : pageNavLinks
 
   return (
     <motion.header
@@ -42,7 +54,7 @@ export function Header({ onBookingClick }: HeaderProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
               <span className="font-serif text-lg font-bold text-primary-foreground">L</span>
             </div>
