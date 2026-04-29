@@ -1,8 +1,9 @@
-"use client"
+'use client'
 
 import { motion } from "framer-motion"
 import { ArrowRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { AnimatedBackground } from "./animated-background"
 
 interface HeroProps {
   onBookingClick: () => void
@@ -11,11 +12,8 @@ interface HeroProps {
 export function Hero({ onBookingClick }: HeroProps) {
   return (
     <section className="relative min-h-screen overflow-hidden bg-muted pt-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-secondary/5 blur-3xl" />
-      </div>
+      {/* Animated Background */}
+      <AnimatedBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-32">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
