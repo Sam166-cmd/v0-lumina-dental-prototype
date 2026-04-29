@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from "lucide-react"
 import { Header } from "@/components/lumina/header"
 import { Footer } from "@/components/lumina/footer"
-import { CTASection } from "@/components/lumina/cta-section"
 import { BookingModal } from "@/components/lumina/booking-modal"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -309,14 +308,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <CTASection 
-        onBookingClick={() => setIsBookingOpen(true)}
-        variant="light"
-        title="Ready to Start Your Smile Journey?"
-        subtitle="Book your free consultation today and take the first step toward the confident, beautiful smile you deserve."
-      />
 
       {/* Footer */}
       <Footer onBookingClick={() => setIsBookingOpen(true)} />
