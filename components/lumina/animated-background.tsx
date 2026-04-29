@@ -67,8 +67,8 @@ export function AnimatedBackground() {
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Gradient base */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted opacity-90" />
+      {/* Gradient base - more transparent to let orbs show through */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted opacity-50" />
 
       {/* Animated orbs */}
       {orbs.map((orb) => (
@@ -86,7 +86,7 @@ export function AnimatedBackground() {
           animate={{
             y: [0, 30, -20, 15, 0],
             x: [0, 20, -15, 25, 0],
-            opacity: [0.3, 0.5, 0.3, 0.4, 0.3],
+            opacity: [0.5, 0.8, 0.5, 0.7, 0.5],
           }}
           transition={{
             duration: orb.duration,
@@ -97,8 +97,8 @@ export function AnimatedBackground() {
         />
       ))}
 
-      {/* Light overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/20" />
+      {/* Subtle overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/10" />
     </div>
   )
 }
